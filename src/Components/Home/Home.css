@@ -1,0 +1,42 @@
+.Home{
+    display:flex;
+    height :90vh;
+    margin-top:4rem;  
+    width: 100vw;
+   }
+   .h-left{
+      display:flex;
+      position: realtive;
+      flex:1;
+      flex-direction:column;
+      gap :2rem;
+      padding-left: 1rem;
+    
+   }
+   .content{
+      display:flex;
+      flex-direction:column;
+   }
+   .content>:nth-child(1){
+
+    font-weight:bold ;
+    font-size:3em;
+   }
+   .content>:nth-child(2){
+     font-weight: bold;
+     font-size:2rem;
+   }
+.button{
+  margin-top: 2rem;
+    width: 10rem;
+   height: 3rem;
+ }
+ 
+   .h-right{
+    display:flex;
+    position: realtive;
+    flex:1;
+    height : 420px;
+    width: 200px;
+    margin-right: 5rem;
+ }
