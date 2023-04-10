@@ -2,24 +2,25 @@
 * {
     margin: 0;
     padding: 0;
-    
-    
+ 
   }.main{
     width:100vw;
     height:10px;
-    background-color: rgb(190, 231, 255);
-
+  
 }
 .main-component{
   display: flex;
   flex-direction: column;
   justify-content: center;
-  align-items: center
+  align-items: center;
+  background-color: rgb(195, 179, 253);
 }
 
 .heading{
   padding : 10px; 
   font-family: sans-serif;
+  font-family: cursive;
+
 }
 
 .main-segment{
@@ -28,8 +29,5 @@
   text-align: center;
 }
 .child-segment{
-  margin-top:-4rem;
-}
-.drawer{
-  background-color: black;
+  margin-top:-8rem;
 }

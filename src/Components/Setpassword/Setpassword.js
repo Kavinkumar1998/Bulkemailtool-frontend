@@ -37,6 +37,8 @@ const formValidationSchema = yup.object({
 export const Setpassword =()=>{
     const history = useHistory();
     const [show, setShow] = useState(false);
+    const   [open,setopen]=useState(false);
+    const    [message,setmessage]=useState([]);
     const { handleSubmit, handleChange, handleBlur, values, touched, errors } =
       useFormik({
         initialValues: {
@@ -54,9 +56,11 @@ export const Setpassword =()=>{
           console.log(result);
 
           if (data.status === 400) {
+            setopen(!open)
+            setmessage(result.message);
            console.log(result)
           } else {
-            history.push("/Login");
+            history.push("/");
             console.log(result)
           }
            
@@ -73,12 +77,12 @@ export const Setpassword =()=>{
   <Container component="main" maxWidth="xs">
         <CssBaseline />
         <Box className="main-box"  >
-        <Typography component="h1" variant="h4">Account Recovery</Typography>
-        <Typography component="h1" variant="h6">Set Password</Typography>
+        <Typography  sx={{fontFamily:"cursive",fontWeight:"Bold"}} component="h1" variant="h4">Account Recovery</Typography>
+        <Typography  sx={{fontFamily:"cursive",fontWeight:"Bold"}}component="h1" variant="h6">Set Password</Typography>
            <Box component="form" noValidate onSubmit={handleSubmit} sx={{ mt: 3 }}>
             <Grid container spacing={2}>
             <Grid item xs={12}>
-            <Typography component="h1" variant="h6">Enter new password to Your Account</Typography>
+            <Typography  sx={{fontFamily:"cursive",fontWeight:"Bold"}} component="h1" variant="h6">Enter new password to Your Account</Typography>
               </Grid>
               <Grid item xs={12}>
                 <TextField
@@ -111,7 +115,7 @@ export const Setpassword =()=>{
                   helperText={touched.Password && errors.Password ? errors.Password : null}
                 />
               </Grid>
-              <span className="showpassword">
+              <span  className="showpassword">
                   <Checkbox
                     onClick={togglePassword}
                     aria-label="Checkbox demo"
@@ -124,11 +128,15 @@ export const Setpassword =()=>{
               type="submit"
               fullWidth
               variant="contained"
-              sx={{ mt: 3, mb: 2 }}
+              sx={{ mt: 3, mb: 2,fontFamily:"cursive",fontWeight:"Bold" }}
             >
               Set New Password
             </Button>
-        
+            <Typography 
+             sx={{fontFamily:"cursive",fontWeight:"Bold",color:"red",
+          ...(!open && { display: 'none' })}} 
+          component="h1"
+           variant="h5">{message}</Typography>
           </Box>
         </Box>
         <Copyright sx={{ mt: 5 }} />

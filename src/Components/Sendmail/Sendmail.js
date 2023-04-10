@@ -12,6 +12,7 @@ import { useFormik } from "formik";
 import { useHistory } from "react-router-dom";
 import * as yup from "yup";
 import { Dashboard } from '../Dashboard/Dashboard';
+import withAuthorization from '../../Autherization';
 
 
 
@@ -22,7 +23,7 @@ const formValidationSchema = yup.object({
 });
 
 
-export const Sendmail =({Mail,setMail})=>{
+const Sendmail =({Mail,setMail})=>{
     const history = useHistory();
     const { handleSubmit, handleChange, handleBlur, values, touched, errors } =
       useFormik({
@@ -72,7 +73,7 @@ export const Sendmail =({Mail,setMail})=>{
 <Container component="main" maxWidth="xs">
         <CssBaseline />
         <Box className="main-box"  >
-          <Typography component="h1" variant="h5"> Add Subject And Message </Typography>
+          <Typography  sx={{fontFamily:"cursive",fontWeight:"Bold"}} component="h1" variant="h5"> Add Subject And Message </Typography>
            <Box component="form" noValidate onSubmit={handleSubmit} sx={{ mt: 3 }}>
             <Grid container spacing={2}>
             <Grid item xs={12}>
@@ -97,6 +98,8 @@ export const Sendmail =({Mail,setMail})=>{
                   id="message"
                   label="Message"
                   name="message"
+                  multiline
+                  rows={5}
                   autoComplete="message"
                   value={values.message}
                   onChange={handleChange}
@@ -110,7 +113,7 @@ export const Sendmail =({Mail,setMail})=>{
               type="submit"
               fullWidth
               variant="contained"
-              sx={{ mt: 3, mb: 2 }}
+              sx={{ mt: 3, mb: 2 ,fontFamily:"cursive",fontWeight:"Bold"}}
             >
              Send Mail
             </Button>
@@ -124,3 +127,5 @@ export const Sendmail =({Mail,setMail})=>{
       
   );
 }
+
+export default withAuthorization(Sendmail)

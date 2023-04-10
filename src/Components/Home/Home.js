@@ -3,16 +3,17 @@ import "./Home.css";
 import { Dashboard } from '../Dashboard/Dashboard';
 import  Mail from "./image/secure-email-hosting-desk.png"
 import { useHistory } from 'react-router-dom';
+import withAuthorization from '../../Autherization';
 
 
-
-export const Home = () => {
+ const Home = () => {
     const history = useHistory();
 
 
 
 
   return (
+
     <Dashboard    >
     <div className="Home">
       <div className="h-left">
@@ -34,8 +35,7 @@ export const Home = () => {
     </div>
     </Dashboard>
   )
-
-
 }
 
 
+export default withAuthorization(Home);

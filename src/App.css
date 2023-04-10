@@ -1,18 +1,15 @@
 :root
 {
-  --yellow: #F5C32C;
-    --orange : #FCA61F;
-    --black : #000000;
-    --gray : #788097;
-    --blueCard : #39cdee;
+  
     --purple: rgb(130, 15, 201);
     --boxShadow : 0px 19px 60px rgb(0 0 0 / 8%);
-    --orangeCard: rgba(252, 166, 31, 0.45);
     --smboxShadow: -79px 51px 60px rgba(0, 0, 0, 0.08);
 }
 * {
   margin: 0;
   padding: 0;
+  font-family: cursive;
+
 }
 .button {
     background: var(--purple);
@@ -35,8 +32,9 @@
     display: flex;
     flex-direction: column;
     align-items: center;
-    border: 2px solid black;
+    box-shadow : 3px 3px 10px 0px rgb(22, 11, 11);
     padding:50px;
     border-radius: 20px;
+    background-color: azure;
 
 }

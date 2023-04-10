@@ -11,9 +11,8 @@ import "./Login.css";
 import { useFormik } from "formik";
 import { useHistory } from "react-router-dom";
 import * as yup from "yup";
-import { Backdrop, Checkbox, CircularProgress, Snackbar } from '@mui/material';
 import { useState } from 'react';
-import MuiAlert from "@mui/material/Alert";
+import { Checkbox } from '@mui/material';
 
 
 function Copyright(props) {
@@ -31,9 +30,6 @@ function Copyright(props) {
 
 
 
-const Alert = React.forwardRef(function Alert(props, ref) {
-  return <MuiAlert elevation={6} ref={ref} variant="filled" {...props} />;
-});
 
 
 
@@ -46,28 +42,8 @@ const formValidationSchema = yup.object({
 export const Login =()=>{
     const history = useHistory();
     const [show, setShow] = useState(false);
-    const [open, setOpen] = useState(false);
-    const [drop, setDrop] = useState(false);
-  const [severity, setSeverity] = useState(true);
-
-
-
-  const handleCloseDrop = () => {
-    setDrop(false);
-  };
-  
-
-  const handleClose = (event, reason) => {
-    if (reason === "clickaway") {
-      return;
-    }
-
-    setOpen(false);
-  };
-
-
-
-
+    const   [open,setopen]=useState(false);
+    const    [message,setmessage]=useState([]);
 
     const { handleSubmit, handleChange, handleBlur, values, touched, errors } =
       useFormik({
@@ -85,11 +61,12 @@ export const Login =()=>{
           const result = await data.json();
           console.log(result);
             if (data.status === 400) {
-              setOpen(true);
-              handleCloseDrop();
+              setopen(!open)
+               setmessage(result.message);
+          console.log(result);
+
             } else {
-              setOpen(true);
-              setSeverity(false);
+             ;
               localStorage.setItem("token", result.token);
               localStorage.setItem("Name", result.Name);
               localStorage.setItem("Email", result.Email);
@@ -116,7 +93,7 @@ export const Login =()=>{
   <Container component="main" maxWidth="xs">
         <CssBaseline />
         <Box className="main-box" >
-          <Typography component="h1" variant="h5">  Sign In your Account   </Typography>
+          <Typography  sx={{fontFamily:"cursive",fontWeight:"Bold"}} component="h1" variant="h5">  Sign In your Account   </Typography>
            <Box component="form" noValidate onSubmit={handleSubmit} sx={{ mt: 3 }}>
             <Grid container spacing={2}>
             <Grid item xs={12}>
@@ -165,13 +142,13 @@ export const Login =()=>{
               type="submit"
               fullWidth
               variant="contained"
-              sx={{ mt: 3, mb: 2 }}
+              sx={{ mt: 3, mb: 2, fontFamily:"cursive",fontWeight:"Bold" }}
             >
               Sign In
             </Button>
             <Grid container justifyContent="flex-end">
               <Grid item>
-                <Link onClick={() => history.push("/Forgetpassword")} variant="body2">
+                <Link  sx={{fontFamily:"cursive",fontWeight:"Bold"}} onClick={() => history.push("/Forgetpassword")} variant="body2">
                   Forget Password
                 </Link>
               </Grid>
@@ -182,10 +159,15 @@ export const Login =()=>{
               fullWidth
               variant="contained"
               color="success"
-              sx={{ mt: 2, mb: 2 }}
+              sx={{ mt: 2, mb: 2 ,fontFamily:"cursive",fontWeight:"Bold"}}
             >
               Create Account
             </Button>
+            <Typography 
+             sx={{fontFamily:"cursive",fontWeight:"Bold",color:"red",
+          ...(!open && { display: 'none' })}} 
+          component="h1"
+           variant="h5">{message}</Typography>
             <Grid container justifyContent="flex-end">
               <Grid item>
               </Grid>
@@ -193,28 +175,8 @@ export const Login =()=>{
           </Box>
         </Box>
         <Copyright sx={{ mt: 5 }} />
-        <Snackbar open={open} autoHideDuration={6000} onClose={handleClose}>
-        <Alert
-              onClose={handleClose}
-              severity={severity ? "error" : "success"}
-              sx={{ width: "100%" }}
-            >
-              {severity ? "Invalid credentials" : "login successfully"}
-            </Alert>
-          </Snackbar>
-          <div>
-          <Backdrop
-        sx={{ color: "#fff", zIndex: (theme) => theme.zIndex.drawer + 1 }}
-        open={drop}
-        onClick={handleCloseDrop}
-      >
-        <CircularProgress color="inherit" />
-      </Backdrop>
-        </div>
+
       </Container>
-
-
-
       
   );
 }

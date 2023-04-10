@@ -11,6 +11,7 @@ import "./Verifyotp.css";
 import { useFormik } from "formik";
 import { useHistory } from "react-router-dom";
 import * as yup from "yup";
+import { useState } from 'react';
 
 
 function Copyright(props) {
@@ -35,6 +36,10 @@ const formValidationSchema = yup.object({
 
 export const VerifyOTP =()=>{
     const history = useHistory();
+    const   [open,setopen]=useState(false);
+    const    [message,setmessage]=useState([]);
+
+
     const { handleSubmit, handleChange, handleBlur, values, touched, errors } =
       useFormik({
         initialValues: {
@@ -51,6 +56,8 @@ export const VerifyOTP =()=>{
           const result = await data.json();
           console.log(result);
           if (data.status === 400) {
+            setopen(!open)
+            setmessage(result.message);
             console.log(result)
           } else {
         
@@ -64,12 +71,12 @@ export const VerifyOTP =()=>{
   <Container component="main" maxWidth="xs">
         <CssBaseline />
         <Box className="main-box"  >
-          <Typography component="h1" variant="h4">Account Recovery</Typography>
-          <Typography component="h1" variant="h6">Verify OTP</Typography>
+          <Typography  sx={{fontFamily:"cursive",fontWeight:"Bold"}} component="h1" variant="h4">Account Recovery</Typography>
+          <Typography  sx={{fontFamily:"cursive",fontWeight:"Bold"}} component="h1" variant="h6">Verify OTP</Typography>
            <Box component="form" noValidate onSubmit={handleSubmit} sx={{ mt: 3 }}>
             <Grid container spacing={2}>
             <Grid item xs={12}>
-            <Typography component="h1" variant="h6">Enter the OTP that sent to your email address</Typography>
+            <Typography  sx={{fontFamily:"cursive",fontWeight:"Bold"}}  component="h1" variant="h6">Enter the OTP that sent to your email address</Typography>
                <span ></span>
               </Grid>
               <Grid item xs={12}>
@@ -92,10 +99,15 @@ export const VerifyOTP =()=>{
               type="submit"
               fullWidth
               variant="contained"
-              sx={{ mt: 3, mb: 2 }}
+              sx={{ mt: 3, mb: 2 ,fontFamily:"cursive",fontWeight:"Bold" }}
             >
               Verify OTP
             </Button>
+            <Typography 
+             sx={{fontFamily:"cursive",fontWeight:"Bold",color:"red",
+          ...(!open && { display: 'none' })}} 
+          component="h1"
+           variant="h5">{message}</Typography>
           </Box>
         </Box>
         <Copyright sx={{ mt: 5 }} />

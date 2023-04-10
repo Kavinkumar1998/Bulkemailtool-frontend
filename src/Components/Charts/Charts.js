@@ -2,8 +2,9 @@ import React, {useEffect, useRef, useState} from 'react';
 import ChartsEmbedSDK from "@mongodb-js/charts-embed-dom";
 import { Dashboard } from '../Dashboard/Dashboard';
 import "./Charts.css"
+import withAuthorization from '../../Autherization';
 
-export const Charts = () => {
+ const Charts = () => {
   const sdk = new ChartsEmbedSDK({baseUrl: 'https://charts.mongodb.com/charts-project-0-enjmo'});
   const chartDiv = useRef();
   const [rendered, setRendered] = useState(false);
@@ -22,5 +23,8 @@ export const Charts = () => {
 
   );
 };
+
+
+export default withAuthorization(Charts);
 
 

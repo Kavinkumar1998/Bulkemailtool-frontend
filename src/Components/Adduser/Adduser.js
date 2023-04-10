@@ -12,6 +12,7 @@ import { useFormik } from "formik";
 import { useHistory } from "react-router-dom";
 import * as yup from "yup";
 import { Dashboard } from '../Dashboard/Dashboard';
+import withAuthorization from '../../Autherization';
 
 
 
@@ -22,7 +23,7 @@ const formValidationSchema = yup.object({
 });
 
 
-export const Adduser =({User,setUser})=>{
+const Adduser =({User,setUser})=>{
     const history = useHistory();
     const { handleSubmit, handleChange, handleBlur, values, touched, errors } =
       useFormik({
@@ -73,7 +74,7 @@ export const Adduser =({User,setUser})=>{
 <Container component="main" maxWidth="xs">
         <CssBaseline />
         <Box className="main-box"  >
-          <Typography component="h1" variant="h5"> Add Client Details </Typography>
+          <Typography     sx={{fontFamily:"cursive",fontWeight:"Bold"}}  component="h1" variant="h5"> Add Client Details </Typography>
            <Box component="form" noValidate onSubmit={handleSubmit} sx={{ mt: 3 }}>
             <Grid container spacing={2}>
             <Grid item xs={12}>
@@ -104,14 +105,15 @@ export const Adduser =({User,setUser})=>{
                   onBlur={handleBlur}
                   error={touched.email && errors.email}
                   helperText={touched.email && errors.email ? errors.email : null}
+                  
                 />
               </Grid>
             </Grid>
-            <Button
+            <Button 
               type="submit"
               fullWidth
               variant="contained"
-              sx={{ mt: 3, mb: 2 }}
+              sx={{ mt: 3, mb: 2 , fontFamily:"cursive",fontWeight:"Bold"}}
             >
              Add Client
             </Button>
@@ -125,3 +127,5 @@ export const Adduser =({User,setUser})=>{
       
   );
 }
+
+export default withAuthorization(Adduser);

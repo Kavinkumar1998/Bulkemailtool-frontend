@@ -28,7 +28,7 @@ function Copyright(props) {
   return (
     <Typography variant="body2" color="text.secondary" align="center" {...props}>
       {'Copyright © '}
-      <Link color="inherit" href=" https://kavinkumar-portfolio.netlify.app/">
+      <Link color="inherit" target='blank' href=" https://kavinkumar-portfolio.netlify.app/">
      KavinKumar
       </Link>{' '}
       {new Date().getFullYear()}
@@ -129,7 +129,7 @@ const logout= ()=>{
               variant="h6"
               color="inherit"
               noWrap
-              sx={{ flexGrow: 1 }}
+              sx={{ flexGrow: 1 ,fontFamily:"cursive",fontWeight:"Bold"}}
             >
             BULK EMAIL TOOL
             </Typography>
@@ -145,7 +145,6 @@ const logout= ()=>{
         <Drawer className="drawer" variant="permanent" open={open}>
           <Toolbar
             sx={{
-              backgroundColor:"black",
               display: 'flex',
               alignItems: 'center',
               justifyContent: 'flex-end',
@@ -158,7 +157,8 @@ const logout= ()=>{
               variant="h6"
               color="inherit"
               noWrap
-              sx={{ flexGrow: 1,color:"rgb(130, 15, 201)" }}
+              sx={{ flexGrow: 1,color:"rgb(130, 15, 201)",
+              fontFamily:"cursive",fontWeight:"Bold" }}
             >
               Dashboard
             </Typography>
@@ -173,7 +173,7 @@ const logout= ()=>{
               variant="h6"
               color="inherit"
               noWrap
-              sx={{ flexGrow: 1 ,color:"rgb(130, 15, 201)",
+              sx={{ flexGrow: 1 ,color:"rgb(130, 15, 201)", fontFamily:"cursive",fontWeight:"Bold",
                ...(!open && { display: 'none' })}}>
              Home
             </Typography>
@@ -188,7 +188,7 @@ const logout= ()=>{
               variant="h6"
               color="inherit"
               noWrap
-              sx={{ flexGrow: 1 ,color:"rgb(130, 15, 201)",
+              sx={{ flexGrow: 1 ,color:"rgb(130, 15, 201)",fontFamily:"cursive",fontWeight:"Bold",
                 ...(!open && { display: 'none' })}}
             >
              AddUsers
@@ -203,7 +203,7 @@ const logout= ()=>{
               variant="h6"
               color="inherit"
               noWrap
-              sx={{ flexGrow: 1 ,color:"rgb(130, 15, 201)",
+              sx={{ flexGrow: 1 ,color:"rgb(130, 15, 201)",fontFamily:"cursive",fontWeight:"Bold",
                 ...(!open && { display: 'none' })}}
             >
               Send Mails
@@ -218,7 +218,7 @@ const logout= ()=>{
               variant="h6"
               color="inherit"
               noWrap
-              sx={{ flexGrow: 1,color:"rgb(130, 15, 201)",
+              sx={{ flexGrow: 1,color:"rgb(130, 15, 201)",fontFamily:"cursive",fontWeight:"Bold",
                 ...(!open && { display: 'none' }) }}
             >
            Users Dashboard
@@ -234,7 +234,7 @@ const logout= ()=>{
               variant="h6"
               color="inherit"
               noWrap
-              sx={{ flexGrow: 1 ,color:"rgb(130, 15, 201)",
+              sx={{ flexGrow: 1 ,color:"rgb(130, 15, 201)",fontFamily:"cursive",fontWeight:"Bold",
                 ...(!open && { display: 'none' })}}
             >
              Sent Mails
@@ -249,7 +249,7 @@ const logout= ()=>{
               variant="h6"
               color="inherit"
               noWrap
-              sx={{ flexGrow: 1 ,color:"rgb(130, 15, 201)",
+              sx={{ flexGrow: 1 ,color:"rgb(130, 15, 201)",fontFamily:"cursive",fontWeight:"Bold",
                 ...(!open && { display: 'none' })}}
             >
            Chart
@@ -263,7 +263,7 @@ const logout= ()=>{
               variant="h6"
               color="inherit"
               noWrap
-              sx={{ flexGrow: 1 ,color:"rgb(130, 15, 201)",
+              sx={{ flexGrow: 1 ,color:"rgb(130, 15, 201)",fontFamily:"cursive",fontWeight:"Bold",
                 ...(!open && { display: 'none' })}}
             >
             About Us
@@ -275,10 +275,9 @@ const logout= ()=>{
         <Box
           component="main"
           sx={{
-            backgroundColor:"rgb(190, 231, 255)",
             flexGrow: 1,
             height: '100vh',
-            overflow: 'auto',
+            overflow: 'auto',  backgroundColor:" rgb(195, 179, 253)"
           }}
         >
           <Toolbar />

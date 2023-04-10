@@ -4,7 +4,6 @@
     display: grid;
     gap:0.5 rem;
     grid-template-columns:repeat(auto-fit,minmax(340px,1fr));
-    background-color: rgb(190, 231, 255);
     margin-top:10rem;
   }
   .card{
@@ -12,11 +11,12 @@
   }
   .card-comp{
     box-shadow : 3px 3px 10px 0px rgb(22, 11, 11);
-    background-color:  rgb(130, 15, 201);
+    background-color:  rgb(188, 107, 238);
     font-size: large;
     font-weight: bold;
+    
    }
    .Cardactions{
-     background-color: rgb(130, 15, 201);
+     background-color: rgb(188, 107, 238);
      justify-content: center;
    }

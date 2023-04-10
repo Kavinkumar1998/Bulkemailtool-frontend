@@ -14,6 +14,7 @@ import * as yup from "yup";
 import { Dashboard } from '../Dashboard/Dashboard';
 import { useState } from 'react';
 import { useEffect } from 'react';
+import withAuthorization from '../../Autherization';
 
 
 
@@ -24,7 +25,7 @@ const formValidationSchema = yup.object({
 });
 
 
-export const Edituser =({User,setUser})=>{
+const Edituser =({User,setUser})=>{
     const history = useHistory();
     const {Id} = useParams();
     console.log(Id);
@@ -96,7 +97,7 @@ export const Edituser =({User,setUser})=>{
 <Container component="main" maxWidth="xs">
         <CssBaseline />
         <Box className="main-box"  >
-          <Typography component="h1" variant="h5"> Edit Client Details </Typography>
+          <Typography  sx={{fontFamily:"cursive",fontWeight:"Bold"}} component="h1" variant="h5"> Edit Client Details </Typography>
            <Box component="form" noValidate onSubmit={handleSubmit} sx={{ mt: 3 }}>
             <Grid container spacing={2}>
             <Grid item xs={12}>
@@ -134,7 +135,7 @@ export const Edituser =({User,setUser})=>{
               type="submit"
               fullWidth
               variant="contained"
-              sx={{ mt: 3, mb: 2 }}
+              sx={{ mt: 3, mb: 2 ,fontFamily:"cursive",fontWeight:"Bold"}}
             >
              Edit Client
             </Button>
@@ -148,3 +149,5 @@ export const Edituser =({User,setUser})=>{
       
   );
 }
+
+export default withAuthorization(Edituser);

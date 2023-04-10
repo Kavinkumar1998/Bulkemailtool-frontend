@@ -1,13 +1,17 @@
-.Profile{
+.profile{
     border:2px solid black;
     border-radius: 20px;
     align-self: center;
     display: flex;
-    flex-direction: column;
-    margin: auto;
-  width:50%;
+    flex-direction:column;
+    margin-top:10rem;
     padding: 10px;
     height:auto;
     overflow: auto;
+    margin-left: auto;
+    margin-right: auto;
+    width: 50%;
+    font-family: cursive;
+   background-color:  rgb(188, 107, 238);
    
 }

@@ -38,6 +38,10 @@ const formValidationSchema = yup.object({
 export const Signup =()=>{
     const history = useHistory();
     const [show, setShow] = useState(false);
+    const   [open,setopen]=useState(false);
+    const    [message,setmessage]=useState([]);
+
+
     const { handleSubmit, handleChange, handleBlur, values, touched, errors } =
       useFormik({
         initialValues: {
@@ -56,7 +60,9 @@ export const Signup =()=>{
           console.log(result);
 
           if (data.status === 400) {
-           console.log(result)
+            setopen(!open)
+            setmessage(result.message);
+           console.log(result);
           } else {
             history.push("/login");
             console.log("saved")
@@ -71,14 +77,14 @@ export const Signup =()=>{
       };
   
     const reDirect = () => {
-      history.push("/Login")
+      history.push("/")
     };
 
   return (
   <Container component="main" maxWidth="xs">
         <CssBaseline />
         <Box className="main-box"  >
-          <Typography component="h1" variant="h5">  Sign up   </Typography>
+          <Typography sx={{ mt: 3, mb: 2,fontFamily:"cursive",fontWeight:"Bold" }} component="h1" variant="h5">  Sign up   </Typography>
            <Box component="form" noValidate onSubmit={handleSubmit} sx={{ mt: 3 }}>
             <Grid container spacing={2}>
             <Grid item xs={12}>
@@ -140,15 +146,18 @@ export const Signup =()=>{
               type="submit"
               fullWidth
               variant="contained"
-              sx={{ mt: 3, mb: 2 }}
+              sx={{ mt: 3, mb: 2 ,fontFamily:"cursive",fontWeight:"Bold"}}
             >
               Sign Up
             </Button>
             <Grid container justifyContent="flex-end">
               <Grid item>
-                <Link onClick={() => reDirect()} variant="body2">
+                <Link  sx={{fontFamily:"cursive",fontWeight:"Bold"}}  onClick={() => reDirect()} variant="body2">
                   Already have an account? Sign in
                 </Link>
+                <Typography  sx={{fontFamily:"cursive",fontWeight:"Bold",color:"red",
+          ...(!open && { display: 'none' })
+          }} component="h1" variant="h5">{message}</Typography>
               </Grid>
             </Grid>
           </Box>

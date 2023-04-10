@@ -11,6 +11,7 @@ import "./Forgetpassword.css";
 import { useFormik } from "formik";
 import { useHistory } from "react-router-dom";
 import * as yup from "yup";
+import { useState } from 'react';
 
 
 function Copyright(props) {
@@ -33,8 +34,11 @@ const formValidationSchema = yup.object({
 });
 
 
-export const Forgetpassword =()=>{
+const Forgetpassword =()=>{
     const history = useHistory();
+    const   [open,setopen]=useState(false);
+    const    [message,setmessage]=useState([]);
+
     const { handleSubmit, handleChange, handleBlur, values, touched, errors } =
       useFormik({
         initialValues: {
@@ -50,8 +54,9 @@ export const Forgetpassword =()=>{
           })
           const result = await data.json();
           if (data.status === 400) {
+            setopen(!open)
+               setmessage(result.message);
             console.log(result);
-           
           } else {
          console.log(result);
          history.push("/VerifyOTP");
@@ -64,12 +69,12 @@ export const Forgetpassword =()=>{
   <Container component="main" maxWidth="xs">
         <CssBaseline />
         <Box className="main-box"  >
-          <Typography component="h1" variant="h4">Account Recovery</Typography>
-          <Typography component="h1" variant="h6">Forget Password</Typography>
+          <Typography  sx={{fontFamily:"cursive"}}component="h1" variant="h4">Account Recovery</Typography>
+          <Typography  sx={{fontFamily:"cursive",fontWeight:"Bold"}} component="h1" variant="h6">Forget Password</Typography>
            <Box component="form" noValidate onSubmit={handleSubmit} sx={{ mt: 3 }}>
             <Grid container spacing={2}>
             <Grid item xs={12}>
-            <Typography component="h1" variant="h6">Enter an email address where we can send you a verification code</Typography>
+            <Typography  sx={{fontFamily:"cursive",fontWeight:"Bold"}}component="h1" variant="h6">Enter an email address where we can send you a verification code</Typography>
               </Grid>
               <Grid item xs={12}>
                 <TextField
@@ -91,10 +96,13 @@ export const Forgetpassword =()=>{
               type="submit"
               fullWidth
               variant="contained"
-              sx={{ mt: 3, mb: 2 }}
+              sx={{ mt: 3, mb: 2  ,fontFamily:"cursive",fontWeight:"Bold"}}
             >
               Send OTP
             </Button>
+            <Typography  sx={{fontFamily:"cursive",fontWeight:"Bold",color:"red",
+          ...(!open && { display: 'none' })
+          }} component="h1" variant="h5">{message}</Typography>
           </Box>
         </Box>
         <Copyright sx={{ mt: 5 }} />
@@ -104,3 +112,5 @@ export const Forgetpassword =()=>{
       
   );
 }
+
+export default Forgetpassword;

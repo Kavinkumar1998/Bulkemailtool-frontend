@@ -1,31 +1,24 @@
 import './App.css';
-import { Forgetpassword } from './Components/Forgetpassword/Forgetpassword';
+import  Forgetpassword  from './Components/Forgetpassword/Forgetpassword';
 import { Login } from './Components/Login.js/Login';
 import {Signup} from"./Components/Signup/Signup.js";
 import { Route} from "react-router-dom";
 import { VerifyOTP } from './Components/Verifyotp/Verifyotp';
 import { Setpassword } from './Components/Setpassword/Setpassword';
 import { Dashboard } from './Components/Dashboard/Dashboard';
-import { Home } from './Components/Home/Home';
-import { Adduser } from './Components/Adduser/Adduser';
-import { Edituser } from './Components/Edituser/Edituser';
+import  Edituser  from './Components/Edituser/Edituser';
 import { useState } from 'react';
 import { useEffect } from 'react';
 import Userdashboard from './Components/Userdashboard/Userdashboard';
-import { Sendmail } from './Components/Sendmail/Sendmail';
-import { Sentmail } from './Components/Sentmails/Sentmails';
-import { Veiwmail } from './Components/Veiwmail/veiwmail';
+import  Sendmail  from './Components/Sendmail/Sendmail';
+import  Sentmail  from './Components/Sentmails/Sentmails';
+import  Veiwmail  from './Components/Veiwmail/veiwmail';
 import About from './Components/About/About';
-import { Charts } from './Components/Charts/Charts';
-import { Profile } from './Components/Profile/Profile';
-
-
-
-
-
-
-
-
+import Charts from './Components/Charts/Charts';
+import Profile  from './Components/Profile/Profile';
+import Home from './Components/Home/Home';
+import Adduser from './Components/Adduser/Adduser';
+import Nopage from './Components/Nopage/Nopage';
 
 
 
@@ -175,6 +168,11 @@ console.log(error);
   count={count}
   setcount={setcount}/>
 </Route>
+
+
+<Route path = "/no">
+       <Nopage/>
+     </Route>
 
     </div>
   );

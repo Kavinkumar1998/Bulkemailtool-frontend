@@ -1,7 +1,7 @@
 .Home{
     display:flex;
     height :90vh;
-    margin-top:4rem;  
+    margin-top:10rem;  
     width: 100vw;
    }
    .h-left{
@@ -11,6 +11,7 @@
       flex-direction:column;
       gap :2rem;
       padding-left: 1rem;
+    
     
    }
    .content{
@@ -26,6 +27,9 @@
      font-weight: bold;
      font-size:2rem;
    }
+   .content>:nth-child(3){
+align-self: center;
+  }
 .button{
   margin-top: 2rem;
     width: 10rem;

@@ -3,6 +3,7 @@ import React from 'react'
 import "./Userdashboard.css";
 import { useHistory } from 'react-router-dom'
 import { Dashboard } from '../Dashboard/Dashboard';
+import withAuthorization from '../../Autherization';
 
 
 const Userdashboard = ({User,setUser}) => {
@@ -33,17 +34,17 @@ console.log(data);
   };
   return (
  <Dashboard   title = "Client details"
- description= "Veiw detail here">
+>
 <div className="card-container"> 
               {User.map((User)=>(
                        <Card sx={{ maxWidth: 345 }} key ={User._id} className="card">
                        <CardContent className="card-comp">
   
-                         <Typography gutterBottom variant="h5" component="div">
+                         <Typography  sx={{fontFamily:"cursive",fontWeight:"Bold"}}  gutterBottom variant="h5" component="div">
                          First Name : {User.name}
                          </Typography>
 
-                         <Typography variant="body1" color="black">
+                         <Typography  sx={{fontFamily:"cursive",fontWeight:"Bold"}}  variant="body1" color="black">
                          email : {User.email}
                          </Typography>
   
@@ -51,8 +52,8 @@ console.log(data);
   
                        </CardContent>
                        <CardActions className="Cardactions">
-                       <Button onClick={()=>history.push(`/Edituser/${User._id}`)} variant="contained" color="secondary">EDIT</Button>
-                       <Button onClick={()=>deletedata(User._id)}  variant="contained" color="error">DELETE</Button>
+                       <Button sx={{fontFamily:"cursive",fontWeight:"Bold"}}  onClick={()=>history.push(`/Edituser/${User._id}`)} variant="contained" color="secondary">EDIT</Button>
+                       <Button  sx={{fontFamily:"cursive",fontWeight:"Bold"}}  onClick={()=>deletedata(User._id)}  variant="contained" color="error">DELETE</Button>
 
                        </CardActions>
                      </Card>
@@ -65,4 +66,4 @@ console.log(data);
   )
 }
 
-export default Userdashboard
+export default withAuthorization(Userdashboard);
