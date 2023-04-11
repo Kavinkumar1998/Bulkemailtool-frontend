@@ -45,3 +45,28 @@ margin-top: 2rem;
   width: 200px;
   margin-right: 5rem;
 }
+
+
+@media screen and (max-width: 480px) {
+  .a-main{
+    display:flex;
+    flex-direction:column;
+    height :90vh;
+    width: 80vw;
+}
+.a-left{
+  margin-top:-2rem; 
+transform: scale(0.8);
+margin-bottom: -5rem;
+}
+
+.a-right{
+
+  height : 350px;
+  width: 350px;
+  margin-bottom: -5rem;
+
+}
+
+
+}

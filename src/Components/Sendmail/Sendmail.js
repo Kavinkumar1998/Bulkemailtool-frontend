@@ -58,9 +58,9 @@ const Sendmail =({Mail,setMail})=>{
   return (
 <Dashboard>
 
-<div className="a-main">
-<div className="a-left">
-<div className="content">
+<div className="s-main">
+<div className="s-left">
+<div className="s-content">
 
 <span>Send Bulk Mail Here</span>
     <span>
@@ -68,7 +68,7 @@ const Sendmail =({Mail,setMail})=>{
     </span>
 </div>
 </div>
-<div className="a-right">
+<div className="s-right">
 
 <Container component="main" maxWidth="xs">
         <CssBaseline />

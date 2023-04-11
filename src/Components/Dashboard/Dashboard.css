@@ -31,3 +31,12 @@
 .child-segment{
   margin-top:-8rem;
 }
+
+@media screen and (max-width: 480px) {
+
+  .child-segment{
+   width: 80vw;
+  }
+  
+
+}

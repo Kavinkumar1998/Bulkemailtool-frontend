@@ -3,3 +3,11 @@ padding-top: 4rem;
 padding-left: 14rem;
 
 }
+@media screen and (max-width: 480px) {
+.charts{
+transform: scale(0.4);
+align-self: center;
+width: 180px;
+margin-left: -150px;
+}
+}
