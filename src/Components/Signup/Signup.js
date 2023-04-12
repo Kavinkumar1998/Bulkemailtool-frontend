@@ -64,7 +64,7 @@ export const Signup =()=>{
             setmessage(result.message);
            console.log(result);
           } else {
-            history.push("/login");
+            history.push("/");
             console.log("saved")
           }
            
